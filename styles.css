@@ -1,0 +1,191 @@
+/* Estilos CSS */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Cambio de fuente */
+    background-color: #f2f2f2; /* Nuevo color de fondo */
+    transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+  }
+  
+  main {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Modificado para que sea una sola columna en todos los dispositivos */
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  @keyframes backgroundAnimation {
+    0% {
+      background-color: #ff7e5f; /* Color inicial */
+    }
+    25% {
+      background-color: #feb47b; /* Segundo color */
+    }
+    50% {
+      background-color: #ffed70; /* Tercer color */
+    }
+    75% {
+      background-color: #87fc70; /* Cuarto color */
+    }
+    100% {
+      background-color: #50a7c2; /* Color final */
+    }
+  }
+  
+  .grafica-card {
+    animation: backgroundAnimation 15s ease infinite alternate; /* Alternar entre colores en 10 segundos */
+    border: 5px solid #bfff00;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .grafica {
+    width: 100%;
+    height: 300px; /* Reducción de altura para un mejor ajuste */
+    margin-bottom: 20px;
+  }
+  
+  .leds {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 10px; /* Espacio inferior reducido */
+  }
+  
+  .leds img {
+    height: 100px; /* Reducción de tamaño de las imágenes */
+    width: auto; /* Ajuste automático del ancho */
+  }
+  
+  select {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .grafica-cardled {
+    border: 5px solid #bfff00;
+    background-color: #242424;
+    border-radius: 10px;
+    padding: 20px;  
+    margin: 20px;
+    transition: transform 0.3s ease;
+    border-radius: 50px;
+  }
+
+  
+  
+  label {
+    width: 450px; /* Reducido en 50px */
+    height: 150px; /* Reducido en 50px */
+    margin-left: auto; /* Centra horizontalmente */
+    margin-right: auto; /* Centra horizontalmente */
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 100px; /* Reducido en 100px */
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  label:after {
+    content: "";
+    width: 130px; /* Reducido en 50px */
+    height: 130px; /* Reducido en 50px */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 65px; /* Reducido en 50px */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Corrección de la sintaxis */
+    transition: 0.3s;
+  }
+  
+  input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+  
+  input:checked + label {
+    background: #242424;
+  }
+  
+  input:checked + label:after {
+    left: 430px; /* Ajusta la posición del círculo cuando el toggle está activado */
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+  }
+  
+  label:active:after {
+    width: 260px;
+  }
+  
+  .background {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: -1;
+    transition: 0.3s;
+  }
+  
+  #darkmode-toggle:checked + label .background {
+    background: #242424;
+  }
+  
+  #darkmode-toggle:checked + label .background + .grafica-cardled {
+    background: #242424;
+  }
+  
+  label svg {
+    position: absolute;
+    width: 90px;
+    top: 30px;
+    z-index: 100;
+  }
+  
+  label svg.sun {
+    left: 30px;
+    fill: #fff;
+    transition: 0.3s;
+  }
+  
+  label svg.moon {
+    left: 320px;
+    fill: #7e7e7e;
+    transition: 0.3s;
+  }
+  
+  input:checked + label svg.sun {
+    fill: #7e7e7e;
+  }
+  
+  input:checked + label svg.moon {
+    fill: #fff;
+  }
+  
+  /* Estilo adicional para ajustar el contenido dentro de las cards */
+  .content {
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+  }
+  
+  /* Estilo para ajustar el tamaño del foco */
+  #focoImg {
+    max-width: 100%;
+    height: auto;
+  }
+  
